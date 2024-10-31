@@ -206,3 +206,118 @@ public class SortedSetExample {
 - `SortedSet` provides several methods for range operations, making it suitable for scenarios that require ordered, unique data access and manipulation.
 
 Understanding `SortedSet` and its features can be beneficial for managing ordered, unique data in Java.
+<br>
+<br>
+## **3. Map Interface in Java Collection Framework**
+The **Map** interface in Java is a part of the **Java Collection Framework** and is used to store **key-value pairs**. Unlike collections such as `List` or `Set`, a `Map` does not allow duplicate keys; each key maps to a single value, but values can be duplicated.
+
+### Key Characteristics of `Map`
+1. **Key-Value Pairs**: Each entry in a `Map` consists of a unique key and a corresponding value.
+2. **No Duplicate Keys**: Keys in a `Map` must be unique, but values may be duplicated.
+3. **Null Keys and Values**: Some implementations, like `HashMap`, allow one `null` key and multiple `null` values, while others, like `Hashtable`, do not allow `null` keys or values.
+
+### Common Implementations of `Map`
+- **HashMap**: Uses a hash table, provides constant-time performance for most operations, allows `null` keys and values, and does not guarantee any order.
+- **LinkedHashMap**: Maintains insertion order of keys.
+- **TreeMap**: Stores keys in a sorted, ascending order (by natural ordering or custom comparator) and does not allow `null` keys.
+- **Hashtable**: Synchronized, does not allow `null` keys or values, and is considered legacy (often replaced by `ConcurrentHashMap`).
+
+### Key Methods in the `Map` Interface
+
+| Method | Description |
+|--------|-------------|
+| `put(K key, V value)` | Associates the specified value with the specified key in the map. |
+| `get(Object key)` | Returns the value associated with the specified key, or `null` if the map contains no mapping for the key. |
+| `remove(Object key)` | Removes the mapping for a key if it is present. |
+| `containsKey(Object key)` | Returns `true` if the map contains a mapping for the specified key. |
+| `containsValue(Object value)` | Returns `true` if the map contains one or more keys mapped to the specified value. |
+| `keySet()` | Returns a `Set` view of the keys contained in the map. |
+| `values()` | Returns a `Collection` view of the values contained in the map. |
+| `entrySet()` | Returns a `Set` view of the mappings (entries) contained in this map. |
+
+### Example of Using `Map` with `HashMap`
+
+Here’s an example that demonstrates basic operations on a `Map` using `HashMap`:
+
+```java
+import java.util.HashMap;
+import java.util.Map;
+
+public class MapExample {
+    public static void main(String[] args) {
+        // Creating a Map using HashMap
+        Map<Integer, String> map = new HashMap<>();
+
+        // Adding key-value pairs to the Map
+        map.put(1, "Alice");
+        map.put(2, "Bob");
+        map.put(3, "Charlie");
+
+        // Displaying the Map
+        System.out.println("Map: " + map); // Output: Map: {1=Alice, 2=Bob, 3=Charlie}
+
+        // Accessing values by key
+        System.out.println("Key 2 maps to: " + map.get(2)); // Output: Key 2 maps to: Bob
+
+        // Checking for a key or value
+        System.out.println("Map contains key 1? " + map.containsKey(1)); // Output: true
+        System.out.println("Map contains value 'Alice'? " + map.containsValue("Alice")); // Output: true
+
+        // Iterating over entries
+        for (Map.Entry<Integer, String> entry : map.entrySet()) {
+            System.out.println("Key: " + entry.getKey() + ", Value: " + entry.getValue());
+        }
+
+        // Removing a key-value pair
+        map.remove(3);
+        System.out.println("After removing key 3: " + map); // Output: {1=Alice, 2=Bob}
+    }
+}
+```
+
+### Example with `TreeMap` (Sorted by Keys)
+
+If you need the keys to be sorted, use `TreeMap`:
+
+```java
+import java.util.Map;
+import java.util.TreeMap;
+
+public class TreeMapExample {
+    public static void main(String[] args) {
+        Map<String, Integer> treeMap = new TreeMap<>();
+
+        // Adding key-value pairs
+        treeMap.put("Apple", 5);
+        treeMap.put("Banana", 2);
+        treeMap.put("Cherry", 8);
+
+        // TreeMap sorts keys in ascending order
+        System.out.println("TreeMap: " + treeMap); // Output: {Apple=5, Banana=2, Cherry=8}
+
+        // Accessing sorted keys
+        for (Map.Entry<String, Integer> entry : treeMap.entrySet()) {
+            System.out.println("Key: " + entry.getKey() + ", Value: " + entry.getValue());
+        }
+    }
+}
+```
+
+### Real-World Use Cases
+- **Storing and Accessing Data by Key**: Useful for scenarios where you need fast lookups, such as caching data or storing user information.
+- **Counting Occurrences**: Can be used to count occurrences of items, like counting word frequencies.
+- **Maintaining Key-Value Relationships**: Useful for maintaining mappings between two related values, such as usernames and user IDs.
+
+### Summary
+- `Map` is a key-value collection that does not allow duplicate keys.
+- Different implementations (`HashMap`, `TreeMap`, `LinkedHashMap`) serve different purposes, depending on whether order and performance are priorities.
+- The `Map` interface provides efficient access to elements based on keys and offers methods for retrieving, updating, and removing entries.
+
+
+
+
+
+
+
+
+
