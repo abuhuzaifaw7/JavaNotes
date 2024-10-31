@@ -386,7 +386,81 @@ public class TreeMapExample {
 - Different implementations (`HashMap`, `TreeMap`, `LinkedHashMap`) serve different purposes, depending on whether order and performance are priorities.
 - The `Map` interface provides efficient access to elements based on keys and offers methods for retrieving, updating, and removing entries.
 
+## **4. SortedMap**
+The `SortedMap` interface in Java extends the `Map` interface, providing a total ordering on its keys. This means that the keys are sorted either in their natural order or according to a specified comparator. The most commonly used implementation of `SortedMap` is `TreeMap`, which sorts keys in ascending order by default.
 
+### Key Features of `SortedMap`
+
+1. **Automatic Sorting**: Keys are automatically sorted.
+2. **Range Views**: Provides methods to return subsets of the map (e.g., `headMap()`, `tailMap()`, and `subMap()`).
+3. **First and Last Keys**: Allows retrieval of the smallest (`firstKey()`) and largest (`lastKey()`) keys.
+
+### Basic Example of `SortedMap` in Java
+
+Here’s a simple example that demonstrates the use of `SortedMap` with `TreeMap`:
+
+```java
+import java.util.SortedMap;
+import java.util.TreeMap;
+
+public class SortedMapExample {
+    public static void main(String[] args) {
+        // Creating a TreeMap that implements SortedMap
+        SortedMap<Integer, String> sortedMap = new TreeMap<>();
+
+        // Adding elements to the sorted map
+        sortedMap.put(3, "Cherry");
+        sortedMap.put(1, "Apple");
+        sortedMap.put(4, "Date");
+        sortedMap.put(2, "Banana");
+
+        // Displaying the sorted map (keys are in ascending order)
+        System.out.println("SortedMap: " + sortedMap);
+
+        // Accessing the first and last keys
+        System.out.println("First Key: " + sortedMap.firstKey());
+        System.out.println("Last Key: " + sortedMap.lastKey());
+
+        // Getting a view of the portion of the map whose keys are strictly less than a given key
+        System.out.println("HeadMap (keys less than 3): " + sortedMap.headMap(3));
+
+        // Getting a view of the portion of the map whose keys are greater than or equal to a given key
+        System.out.println("TailMap (keys greater than or equal to 3): " + sortedMap.tailMap(3));
+
+        // Getting a view of the portion of the map whose keys range from a starting key (inclusive) to an ending key (exclusive)
+        System.out.println("SubMap (keys from 2 to 4): " + sortedMap.subMap(2, 4));
+    }
+}
+```
+
+### Explanation of Code
+
+- **Creating a SortedMap**: A `TreeMap` is created, which implements `SortedMap`. The keys are sorted in ascending order by default.
+- **Adding Elements**: `put()` is used to insert key-value pairs.
+- **Sorted Order Display**: The `TreeMap` maintains the key order automatically.
+- **Retrieving Boundaries**: `firstKey()` and `lastKey()` retrieve the smallest and largest keys.
+- **Range Views**: 
+  - `headMap(toKey)` returns keys strictly less than the specified key.
+  - `tailMap(fromKey)` returns keys greater than or equal to the specified key.
+  - `subMap(fromKey, toKey)` returns keys in a specified range, where `fromKey` is inclusive, and `toKey` is exclusive.
+
+### Expected Output
+
+```plaintext
+SortedMap: {1=Apple, 2=Banana, 3=Cherry, 4=Date}
+First Key: 1
+Last Key: 4
+HeadMap (keys less than 3): {1=Apple, 2=Banana}
+TailMap (keys greater than or equal to 3): {3=Cherry, 4=Date}
+SubMap (keys from 2 to 4): {2=Banana, 3=Cherry}
+```
+
+### Notes on `SortedMap` Implementations
+
+- `TreeMap` is the only class that directly implements `SortedMap`.
+- If you need a sorted map that requires custom ordering, you can pass a `Comparator` to the `TreeMap` constructor.
+
+This example demonstrates the `SortedMap` interface with the `TreeMap` implementation and its ability to provide key ordering and range views.
 
 
 
