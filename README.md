@@ -461,8 +461,319 @@ SubMap (keys from 2 to 4): {2=Banana, 3=Cherry}
 - If you need a sorted map that requires custom ordering, you can pass a `Comparator` to the `TreeMap` constructor.
 
 This example demonstrates the `SortedMap` interface with the `TreeMap` implementation and its ability to provide key ordering and range views.
+<br><br>
+## **<span style="text-align: center;">Assignment</span>** ##
 
+Here's a list of 10 Java assignments related to the Java Collection Framework, complete with sample code and expected output. Each assignment explores a different aspect of collections, from basic operations to more complex usage scenarios.
 
+### 1. **ArrayList Manipulation**
+
+**Objective**: Perform basic operations on an `ArrayList`.
+
+**Code**:
+```java
+import java.util.ArrayList;
+
+public class ArrayListExample {
+    public static void main(String[] args) {
+        ArrayList<String> list = new ArrayList<>();
+        list.add("Apple");
+        list.add("Banana");
+        list.add("Cherry");
+
+        System.out.println("Initial List: " + list);
+
+        list.set(1, "Blueberry");
+        System.out.println("After modification: " + list);
+
+        list.remove("Apple");
+        System.out.println("After removing 'Apple': " + list);
+    }
+}
+```
+
+**Expected Output**:
+```
+Initial List: [Apple, Banana, Cherry]
+After modification: [Apple, Blueberry, Cherry]
+After removing 'Apple': [Blueberry, Cherry]
+```
+
+---
+
+### 2. **LinkedList Operations**
+
+**Objective**: Practice insertion, deletion, and retrieval in a `LinkedList`.
+
+**Code**:
+```java
+import java.util.LinkedList;
+
+public class LinkedListExample {
+    public static void main(String[] args) {
+        LinkedList<Integer> list = new LinkedList<>();
+        list.add(10);
+        list.add(20);
+        list.add(30);
+
+        System.out.println("LinkedList: " + list);
+
+        list.addFirst(5);
+        list.addLast(40);
+        System.out.println("After adding first and last: " + list);
+
+        list.remove(2);
+        System.out.println("After removing element at index 2: " + list);
+    }
+}
+```
+
+**Expected Output**:
+```
+LinkedList: [10, 20, 30]
+After adding first and last: [5, 10, 20, 30, 40]
+After removing element at index 2: [5, 10, 30, 40]
+```
+
+---
+
+### 3. **HashSet Basics**
+
+**Objective**: Understand the unique and unordered nature of a `HashSet`.
+
+**Code**:
+```java
+import java.util.HashSet;
+
+public class HashSetExample {
+    public static void main(String[] args) {
+        HashSet<String> set = new HashSet<>();
+        set.add("Java");
+        set.add("Python");
+        set.add("Java"); // Duplicate entry
+
+        System.out.println("HashSet: " + set);
+    }
+}
+```
+
+**Expected Output**:
+```
+HashSet: [Java, Python]  // The order may vary
+```
+
+---
+
+### 4. **TreeSet Sorting**
+
+**Objective**: Use `TreeSet` to store elements in sorted order.
+
+**Code**:
+```java
+import java.util.TreeSet;
+
+public class TreeSetExample {
+    public static void main(String[] args) {
+        TreeSet<Integer> set = new TreeSet<>();
+        set.add(30);
+        set.add(10);
+        set.add(20);
+
+        System.out.println("TreeSet (sorted): " + set);
+    }
+}
+```
+
+**Expected Output**:
+```
+TreeSet (sorted): [10, 20, 30]
+```
+
+---
+
+### 5. **HashMap Operations**
+
+**Objective**: Use `HashMap` to store and retrieve key-value pairs.
+
+**Code**:
+```java
+import java.util.HashMap;
+
+public class HashMapExample {
+    public static void main(String[] args) {
+        HashMap<Integer, String> map = new HashMap<>();
+        map.put(1, "Apple");
+        map.put(2, "Banana");
+        map.put(3, "Cherry");
+
+        System.out.println("HashMap: " + map);
+        System.out.println("Value for key 2: " + map.get(2));
+
+        map.remove(3);
+        System.out.println("After removing key 3: " + map);
+    }
+}
+```
+
+**Expected Output**:
+```
+HashMap: {1=Apple, 2=Banana, 3=Cherry}
+Value for key 2: Banana
+After removing key 3: {1=Apple, 2=Banana}
+```
+
+---
+
+### 6. **TreeMap Sorted Keys**
+
+**Objective**: Practice key sorting with `TreeMap`.
+
+**Code**:
+```java
+import java.util.TreeMap;
+
+public class TreeMapExample {
+    public static void main(String[] args) {
+        TreeMap<Integer, String> map = new TreeMap<>();
+        map.put(3, "Three");
+        map.put(1, "One");
+        map.put(2, "Two");
+
+        System.out.println("TreeMap (sorted): " + map);
+    }
+}
+```
+
+**Expected Output**:
+```
+TreeMap (sorted): {1=One, 2=Two, 3=Three}
+```
+
+---
+
+### 7. **PriorityQueue Example**
+
+**Objective**: Use `PriorityQueue` to handle a collection with priority ordering.
+
+**Code**:
+```java
+import java.util.PriorityQueue;
+
+public class PriorityQueueExample {
+    public static void main(String[] args) {
+        PriorityQueue<Integer> queue = new PriorityQueue<>();
+        queue.add(30);
+        queue.add(10);
+        queue.add(20);
+
+        System.out.println("PriorityQueue (peek): " + queue.peek());
+
+        while (!queue.isEmpty()) {
+            System.out.println("Removing: " + queue.poll());
+        }
+    }
+}
+```
+
+**Expected Output**:
+```
+PriorityQueue (peek): 10
+Removing: 10
+Removing: 20
+Removing: 30
+```
+
+---
+
+### 8. **Stack Operations**
+
+**Objective**: Perform push, pop, and peek operations on a `Stack`.
+
+**Code**:
+```java
+import java.util.Stack;
+
+public class StackExample {
+    public static void main(String[] args) {
+        Stack<String> stack = new Stack<>();
+        stack.push("Java");
+        stack.push("Python");
+        stack.push("C++");
+
+        System.out.println("Top of stack: " + stack.peek());
+
+        stack.pop();
+        System.out.println("Stack after pop: " + stack);
+    }
+}
+```
+
+**Expected Output**:
+```
+Top of stack: C++
+Stack after pop: [Java, Python]
+```
+
+---
+
+### 9. **Deque Operations**
+
+**Objective**: Use `Deque` as both a stack and queue.
+
+**Code**:
+```java
+import java.util.ArrayDeque;
+
+public class DequeExample {
+    public static void main(String[] args) {
+        ArrayDeque<String> deque = new ArrayDeque<>();
+        deque.addFirst("First");
+        deque.addLast("Last");
+
+        System.out.println("Deque: " + deque);
+        
+        deque.removeFirst();
+        System.out.println("Deque after removing first: " + deque);
+    }
+}
+```
+
+**Expected Output**:
+```
+Deque: [First, Last]
+Deque after removing first: [Last]
+```
+
+---
+
+### 10. **LinkedHashMap for Order Preservation**
+
+**Objective**: Use `LinkedHashMap` to preserve insertion order.
+
+**Code**:
+```java
+import java.util.LinkedHashMap;
+
+public class LinkedHashMapExample {
+    public static void main(String[] args) {
+        LinkedHashMap<Integer, String> map = new LinkedHashMap<>();
+        map.put(3, "Three");
+        map.put(1, "One");
+        map.put(2, "Two");
+
+        System.out.println("LinkedHashMap (insertion order): " + map);
+    }
+}
+```
+
+**Expected Output**:
+```
+LinkedHashMap (insertion order): {3=Three, 1=One, 2=Two}
+```
+
+---
+
+These assignments cover various aspects of the Java Collection Framework, including lists, sets, maps, and queues, helping to understand how each structure is unique and useful in different scenarios.
 
 
 
