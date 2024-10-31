@@ -274,6 +274,79 @@ public class MapExample {
     }
 }
 ```
+**File 2**
+<br>
+<br>
+```java
+package CollectionFrameworkJava.Map;
+import java.util.*;
+public class MapDemp {
+    public static void main(String[] args) {
+        Employee emp1 = new Employee(101, "Ahamad");
+        Employee emp2 = new Employee(102, "Aman");
+        Employee emp3 = new Employee(103, "Usama");
+        Employee emp4 = new Employee(104, "Hamza");
+        Employee emp5 = new Employee(105, "Huzaifa");
+        Employee emp6 = new Employee(106, "Salim");
+        Employee emp7 = new Employee(107, "Siraj");
+        Employee emp8 = new Employee(108, "Virat");
+//        Map<Integer, String> company = new HashMap<>();
+        HashMap<Integer, Employee> company = new HashMap<>();
+        company.put(1, emp1);
+        company.put(2, emp2);
+        company.put(3, emp3);
+        company.put(4, emp4);
+        company.put(5, emp5);
+        company.put(6, emp6);
+        company.put(7, emp7);
+        company.put(8, emp8);
+        System.out.println(company);
+        System.out.println("Get key value of " + company.get(5));
+
+        System.out.println("To get keySet " + company.keySet());
+        System.out.println("To get value "+ company.values() );
+
+        for (int i = 0; i < company.size(); i++){
+            System.out.println(company.get(i+1));
+        }
+        System.out.println("Is Map is Empty -- " + company.isEmpty()); // False
+
+        // For Reaching Key value pair Method 1.
+        Set<Map.Entry <Integer, Employee>> comp = company.entrySet();
+        Iterator<Map.Entry<Integer, Employee>> com = comp.iterator();
+        while (com.hasNext()){
+            Map.Entry<Integer, Employee> kyvp = com.next();
+            Integer iKey = kyvp.getKey();
+            Employee skey = kyvp.getValue();
+            System.out.println("Key" + iKey +", Value"+ skey);
+        }
+        // For Reaching Key value pair Method 2.
+        for (Map.Entry<Integer, Employee> entry : company.entrySet()){
+            System.out.println("Key " + entry.getKey() + ", Value " + entry.getValue());
+        }
+    }
+}
+class Employee {
+    int id;
+    String name;
+
+    public Employee(){}
+    public Employee(int id , String name){
+        super();
+        this.id = id;
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
+}
+
+```
 
 ### Example with `TreeMap` (Sorted by Keys)
 
